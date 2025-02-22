@@ -4,10 +4,10 @@ import { AppModule } from "./app.module"
 
 async function bootstrap() {
   try {
-    const app = await NestFactory.create(AppModule)
+    const app = await NestFactory.create(AppModule, { logger: ["error", "warn", "debug", "log", "verbose"] })
 
     const config = new DocumentBuilder()
-      .setTitle("API ERP Seguros - Nuxon")
+      .setTitle("API ERP Seuros - Nuxon")
       .setDescription("Descrição da API para todas as tabelas")
       .setVersion("1.0")
       .build()

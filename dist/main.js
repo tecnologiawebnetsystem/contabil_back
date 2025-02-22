@@ -5,7 +5,7 @@ const swagger_1 = require("@nestjs/swagger");
 const app_module_1 = require("./app.module");
 async function bootstrap() {
     try {
-        const app = await core_1.NestFactory.create(app_module_1.AppModule);
+        const app = await core_1.NestFactory.create(app_module_1.AppModule, { logger: ["error", "warn", "debug", "log", "verbose"] });
         const config = new swagger_1.DocumentBuilder()
             .setTitle("API ERP Seuros - Nuxon")
             .setDescription("Descrição da API para todas as tabelas")
