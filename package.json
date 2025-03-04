@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "NestJS project with TypeORM and Swagger",
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "node build.js",
+    "prebuild": "npx rimraf dist",
+    "build": "npx nest build",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "npx nest start",
     "start:dev": "npx nest start --watch",
