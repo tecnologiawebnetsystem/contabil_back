@@ -6,15 +6,17 @@ const app_module_1 = require("./app.module");
 async function bootstrap() {
     try {
         const app = await core_1.NestFactory.create(app_module_1.AppModule, { logger: ["error", "warn", "debug", "log", "verbose"] });
+        app.enableCors();
         const config = new swagger_1.DocumentBuilder()
-            .setTitle("API ERP Seuros - Nuxon")
+            .setTitle("API ERP Seguros - Nuxon")
             .setDescription("Descrição da API para todas as tabelas")
             .setVersion("1.0")
             .build();
         const document = swagger_1.SwaggerModule.createDocument(app, config);
         swagger_1.SwaggerModule.setup("api", app, document);
-        await app.listen(process.env.PORT || 3000);
-        console.log(`Application is running on: ${await app.getUrl()}`);
+        const port = process.env.PORT || 3000;
+        await app.listen(port);
+        console.log(`Application is running on port ${port}`);
     }
     catch (error) {
         console.error("Application failed to start:", error);
